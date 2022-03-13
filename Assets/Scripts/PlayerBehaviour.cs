@@ -90,4 +90,19 @@ public class PlayerBehaviour : MonoBehaviour
         }
         return true;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("BONK");
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Entrando en COMBATE!!!");
+        }
+        if (collision.gameObject.CompareTag("Shop"))
+        {
+            Debug.Log("Entrando a la tienda...");
+        }
+        //Si es enemigo entrar en combate, si es tienda entrar en tienda
+    }
+
 }

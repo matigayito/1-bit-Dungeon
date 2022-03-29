@@ -83,6 +83,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     private bool CheckCollision(Vector3 direction)
     {
+        //TODO: YO
+        //tiene que haber una forma de generalizar esto
         if (Physics.Raycast(transform.position, direction, 10))
         {
             Debug.Log("There is something in front of the object!");
@@ -93,7 +95,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("BONK");
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Entrando en COMBATE!!!");
@@ -102,7 +103,6 @@ public class PlayerBehaviour : MonoBehaviour
         {
             Debug.Log("Entrando a la tienda...");
         }
-        //Si es enemigo entrar en combate, si es tienda entrar en tienda
     }
 
 }

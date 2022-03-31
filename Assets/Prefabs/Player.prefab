@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: 10
+  health: 100
+  armor: 10
+  damage: 20
 --- !u!65 &5983261517089002301
 BoxCollider:
   m_ObjectHideFlags: 0

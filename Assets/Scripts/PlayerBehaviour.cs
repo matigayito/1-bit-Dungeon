@@ -6,25 +6,27 @@ using UnityEngine.UI;
 public class PlayerBehaviour : MonoBehaviour
 {
     public float movement;
-    private bool onMenu;
+    private bool inMovement;
+
+    public int health;
+    public int armor;
+    public int damage;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        onMenu = false;
+        inMovement = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!onMenu)
+        if (inMovement)
         {
             CheckKeys();
-        } else
-        {
-            CheckMenu();
         }
-
     }
 
     private void CheckKeys()
@@ -78,7 +80,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void ToggleMenu()
     {
-        onMenu = !onMenu;
+        inMovement = false;
     }
 
     private bool CheckCollision(Vector3 direction)
@@ -97,12 +99,17 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            GameObject.Find("Game Manager").GetComponent<GameManager>().BattleMode(this.gameObject, collision.gameObject);
             Debug.Log("Entrando en COMBATE!!!");
         }
         if (collision.gameObject.CompareTag("Shop"))
         {
             Debug.Log("Entrando a la tienda...");
         }
+    }
+    public void ChangeCombat()
+    {
+        inMovement = false;
     }
 
 }

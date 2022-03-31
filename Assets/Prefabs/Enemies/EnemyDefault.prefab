@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6229774016017352315}
   - component: {fileID: 3989941963631472728}
   m_Layer: 2
-  m_Name: Enemy
+  m_Name: EnemyDefault
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,3 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e48f16498ffd734787479657d0f16fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  areax: 0
+  areay: 0
+  timeToMove: 1
+  health: 100
+  armor: 10
+  damage: 20

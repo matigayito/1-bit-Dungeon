@@ -4,27 +4,37 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    private int health;
     private float distance;
     public float areax;
     public float areay;
     public float timeToMove;
     private float timeSinceMove;
+    private bool inMovement;
+    
+    public int health;
+    public int armor;
+    public int damage;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
         distance = 10;
+        inMovement = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - timeSinceMove > timeToMove )
+        if (inMovement && Time.time - timeSinceMove > timeToMove)
         { 
             RandomMovement();  
         }
+    }
+
+    public void reciveDamage(int dealt)
+    {
+        health = health - (dealt - armor);
     }
 
     void RandomMovement()
@@ -73,4 +83,10 @@ public class EnemyBehaviour : MonoBehaviour
             return false;
         }
         return true;
-    }}
+    }
+
+    public void ChangeCombat()
+    {
+        inMovement = false;
+    }
+}
